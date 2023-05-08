@@ -5,7 +5,7 @@
 
 # Base image
 # ---------------------------------------------------------------------- #
-FROM python:3.10.1
+FROM public.ecr.aws/docker/library/python:3.10.1
 LABEL MAINTAINER="Ivan Lee"
 
 # Make working directory
@@ -19,7 +19,7 @@ COPY poetry.lock /source
 COPY pyproject.toml /source
 RUN pip install -U pip poetry
 RUN poetry config virtualenvs.create false
-RUN poetry install --no-dev 
+RUN poetry install --no-dev
 
 # Copy files into image
 # ---------------------------------------------------------------------- #
